@@ -5,7 +5,7 @@ export type VideoFormData = Omit<IVideo, "_id"> & { likes?: number };
 
 type FetchOptions = {
   method?: "GET" | "POST" | "PUT" | "DELETE";
-  body?: any;
+  body?: unknown;
   headers?: Record<string, string>;
 };
 
@@ -49,7 +49,7 @@ class ApiClient {
     });
   }
 
-  async likeVideo(id: string | any, user : string | any) {
+  async likeVideo(id: string, user : string) {
     try {
       const response = await this.fetch<{ success: boolean; likes: number }>(`/videos/${id}/like/${user}`, {
         method: "POST",
@@ -67,7 +67,7 @@ class ApiClient {
 
 
   }
-  async dislikeVideo(id: string | any, user : string | any) {
+  async dislikeVideo(id: string, user : string) {
     try {
       const response = await this.fetch<{ success: boolean; likes: number }>(`/videos/${id}/dislike/${user}`, {
         method: "POST",

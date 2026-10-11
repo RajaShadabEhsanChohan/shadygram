@@ -17,6 +17,7 @@ export async function GET() {
         return NextResponse.json(
             {
                 error: 'Imagekit Auth failed',
+                errorMessage: error instanceof Error ? error.message : 'Unknown error'
             },
             { status: 500}
         )

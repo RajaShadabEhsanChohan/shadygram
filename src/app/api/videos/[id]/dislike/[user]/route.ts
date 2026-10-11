@@ -15,7 +15,7 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
         }
         
         console.log(user)
-        video.liked = video.liked.filter((like:any) => like.likedBy !== user);
+        video.liked = video.liked.filter((like: { likedBy: string }) => like.likedBy !== user);
         video.likes -= 1;
         
         await video.save();
