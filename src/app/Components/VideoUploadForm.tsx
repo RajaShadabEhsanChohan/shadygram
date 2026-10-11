@@ -5,17 +5,8 @@ import { useForm } from "react-hook-form";
 import { IKUploadResponse } from "imagekitio-next/dist/types/components/IKUpload/props";
 import { Loader2 } from "lucide-react";
 import { useNotification } from "./Notification";
-import { apiClient } from "@/lib/api-client";
+import { apiClient, type VideoFormData } from "@/lib/api-client";
 import FileUpload from "./FileUpload";
-
-interface VideoFormData {
-  title: string;
-  description: string;
-  videoUrl: string;
-  thumbnailUrl: string;
-  likes: number,
-  liked: object
-}
 
 export default function VideoUploadForm() {
   const [loading, setLoading] = useState(false);

@@ -18,11 +18,9 @@ export interface IVideo {
         quality?: number;
     };
     likes: number; // <-- Add this field
-    liked : [
-        {
-            likedBy : string
-        }
-    ]
+    liked: {
+        likedBy: string;
+    }[];
 }
 
 const videoSchema = new Schema<IVideo>(
